@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090b18">
+  <meta name="description" content="ÓRBITA: um universo interativo de animações, minijogos e pequenas surpresas.">
+  <title>ÓRBITA — explore o inesperado</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <canvas id="particleCanvas" aria-hidden="true"></canvas>
+  <div class="cursor-glow" aria-hidden="true"></div>
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#inicio" aria-label="Órbita, início"><span class="brand-mark">◉</span> ÓRBITA<span class="brand-star">✳</span></a>
+    <nav class="desktop-nav" aria-label="Navegação principal">
+      <a href="#experiencias">Experiências</a><a href="#laboratorio">Laboratório</a><a href="#jogos">Minijogos</a>
+    </nav>
+    <div class="top-actions">
+      <button class="icon-button" id="themeButton" aria-label="Trocar tema" title="Trocar tema">◐</button>
+      <button class="menu-button" id="menuButton" aria-expanded="false" aria-label="Abrir menu">☰</button>
+    </div>
+  </header>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Menu móvel">
+    <a href="#experiencias">Experiências ↗</a><a href="#laboratorio">Laboratório ↗</a><a href="#jogos">Minijogos ↗</a>
+  </nav>
+
+  <main>
+    <section class="hero section-shell" id="inicio">
+      <div class="hero-copy reveal">
+        <div class="status-pill"><span class="status-dot"></span> UM EXPERIMENTO CONTRA O TÉDIO <span class="mono">/ Nº 001</span></div>
+        <h1>Não faça<br>absolutamente<br><span class="gradient-text">nada útil.</span></h1>
+        <p class="hero-lede">Clique em tudo. Siga as luzes. Descubra coisas que não precisava descobrir. Este pequeno universo não tem objetivo — e essa é a graça.</p>
+        <div class="hero-buttons"><a class="button button-primary" href="#experiencias">Entrar no universo <span>↘</span></a><button class="button button-ghost" id="randomAdventure">Surpreenda-me <span>✳</span></button></div>
+        <div class="hero-meta"><span><span class="live-dot"></span> Universo ativo</span><span>Sem missão. Sem pressão.</span></div>
+      </div>
+      <div class="hero-art" aria-label="Ilustração animada de um planeta">
+        <div class="orbit orbit-a"><i></i></div><div class="orbit orbit-b"><i></i></div><div class="orbit orbit-c"><i></i></div>
+        <div class="planet-core"><div class="planet-shine"></div><div class="planet-ring"></div></div>
+        <span class="float-label label-one">curiosidade.exe</span><span class="float-label label-two">∞ possibilidades</span>
+        <span class="spark spark-one">✳</span><span class="spark spark-two">✦</span><span class="spark spark-three">✧</span>
+      </div>
+      <div class="hero-bottom"><span>ROLE PARA CONTINUAR</span><div class="scroll-line"><i></i></div><span class="mono">01 — 05</span></div>
+    </section>
+
+    <div class="ticker" aria-label="Palavras animadas"><div class="ticker-track">
+      <span>SEM OBJETIVO</span><b>✳</b><span>SÓ CURIOSIDADE</span><b>✳</b><span>CLIQUE EM TUDO</span><b>✳</b><span>PERCA A NOÇÃO</span><b>✳</b><span>SEM OBJETIVO</span><b>✳</b><span>SÓ CURIOSIDADE</span><b>✳</b><span>CLIQUE EM TUDO</span><b>✳</b><span>PERCA A NOÇÃO</span><b>✳</b>
+    </div></div>
+
+    <section class="section-shell section-space" id="experiencias">
+      <div class="section-heading reveal"><div><span class="eyebrow">01 / PRIMEIRAS IMPRESSÕES</span><h2>Coisas para <span class="muted-gradient">cutucar.</span></h2></div><p>Pequenas experiências interativas. Algumas fazem sentido. Outras… nem tanto.</p></div>
+      <div class="experience-grid">
+        <article class="experience-card card-pink reveal" data-tilt><div class="card-top"><span class="card-icon">✳</span><span class="card-index">EXP. 001</span></div><div class="mini-visual bubble-preview" id="bubblePreview"><i></i><i></i><i></i><i></i><i></i></div><h3>Bolhas sem motivo</h3><p>Crie um pequeno caos colorido. Cada toque libera mais bolhas no universo.</p><button class="text-button" data-bubbles>Soltar bolhas <span>↗</span></button></article>
+        <article class="experience-card card-blue reveal" data-tilt><div class="card-top"><span class="card-icon">◉</span><span class="card-index">EXP. 002</span></div><div class="mini-visual magnetic-demo"><span class="magnet-dot"></span><span class="magnet-dot"></span><span class="magnet-dot"></span><span class="magnet-dot"></span><span class="magnet-dot"></span><span class="magnet-dot"></span><span class="magnet-dot"></span><span class="magnet-dot"></span><span class="magnet-dot"></span></div><h3>Ímã invisível</h3><p>Mova o cursor sobre os pontos e observe como eles tentam escapar.</p><button class="text-button" data-magnet>Testar gravidade <span>↗</span></button></article>
+        <article class="experience-card card-lime reveal" data-tilt><div class="card-top"><span class="card-icon">⌘</span><span class="card-index">EXP. 003</span></div><div class="mini-visual color-orb"><div></div><span>COLOR SHIFT</span></div><h3>Troca de dimensão</h3><p>Mude a paleta visual inteira. Escolha o clima deste pequeno universo.</p><div class="swatches"><button style="--swatch:#8b5cf6" data-palette="violet" aria-label="Tema violeta"></button><button style="--swatch:#18c7db" data-palette="ocean" aria-label="Tema oceano"></button><button style="--swatch:#ff6cae" data-palette="pink" aria-label="Tema rosa"></button><button style="--swatch:#9bde55" data-palette="lime" aria-label="Tema verde"></button></div></article>
+        <article class="experience-card card-orange reveal" data-tilt><div class="card-top"><span class="card-icon">↗</span><span class="card-index">EXP. 004</span></div><div class="mini-visual orbit-preview"><span></span><span></span><span></span><i></i></div><h3>Órbita descontrolada</h3><p>O planeta tem uma reunião importante. Acelere ou desacelere sua viagem.</p><button class="text-button" id="orbitToggle">Alterar velocidade <span>↗</span></button></article>
+        <article class="experience-card card-purple reveal" data-tilt><div class="card-top"><span class="card-icon">⌁</span><span class="card-index">EXP. 005</span></div><div class="mini-visual waveform" id="waveform"></div><h3>Ondas de energia</h3><p>Uma visualização hipnótica que reage ao seu toque. Não existe pontuação.</p><button class="text-button" id="waveButton">Perturbar ondas <span>↗</span></button></article>
+        <article class="experience-card card-white reveal" data-tilt><div class="card-top"><span class="card-icon">?</span><span class="card-index">EXP. 006</span></div><div class="mini-visual mystery-visual"><span>?</span><i>✳</i><i>✦</i></div><h3>Botão sem propósito</h3><p>Ele não resolve problema algum. Talvez seja o botão mais honesto da internet.</p><button class="text-button" id="mysteryButton">Não clicar <span>↗</span></button></article>
+      </div>
+    </section>
+
+    <section class="lab-section" id="laboratorio">
+      <div class="section-shell section-space">
+        <div class="section-heading reveal"><div><span class="eyebrow">02 / LABORATÓRIO INTERATIVO</span><h2>Faça algo <span class="muted-gradient">acontecer.</span></h2></div><p>Seu dedo é o controle remoto. Veja o que acontece quando você insiste.</p></div>
+        <div class="lab-grid">
+          <article class="lab-panel clicker-panel reveal"><div class="panel-heading"><div><span class="eyebrow">MICROJOGO 001</span><h3>O grande botão</h3></div><span class="live-tag">AO VIVO</span></div><p>Um clique. Mais um. E outro. Qual é o limite da sua curiosidade?</p><div class="click-count" id="clickCount">0000</div><button class="big-click" id="bigClick"><span class="click-ripple"></span><span>CLIQUE AQUI</span><small>você sabe que quer</small></button><div class="panel-footer"><span>CLICKS REGISTRADOS</span><button class="reset-button" id="resetClicks">REINICIAR ↺</button></div></article>
+          <article class="lab-panel bubble-panel reveal"><div class="panel-heading"><div><span class="eyebrow">MICROJOGO 002</span><h3>Bolhas no vácuo</h3></div><span class="counter-tag"><b id="bubbleCount">0</b> criadas</span></div><p>Clique dentro do espaço. As bolhas aparecem, flutuam e desaparecem.</p><div class="bubble-space" id="bubbleSpace" aria-label="Área interativa de bolhas"></div><div class="panel-footer"><span>FÍSICA QUESTIONÁVEL</span><button class="reset-button" id="bubbleWave">CRIAR ONDA ↗</button></div></article>
+          <article class="lab-panel quote-panel reveal"><span class="eyebrow">MENSAGEM RECEBIDA / 003</span><div class="quote-mark">“</div><blockquote id="quoteText">O universo é enorme. Sua lista de tarefas pode esperar mais um minuto.</blockquote><div class="panel-footer"><span>TRANSMISSÃO CÓSMICA</span><button class="reset-button" id="newQuote">OUTRA MENSAGEM ↗</button></div></article>
+          <article class="lab-panel idea-panel reveal"><span class="eyebrow">GERADOR DE MISSÕES INÚTEIS / 004</span><h3>Missão aleatória</h3><p>Receba uma missão tão pequena que mal pode ser chamada de missão.</p><div class="mission-result" id="missionResult">Aguardando instruções do acaso<span>_</span></div><button class="button button-primary" id="newMission">Gerar missão <span>✳</span></button></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-shell section-space" id="jogos">
+      <div class="section-heading reveal"><div><span class="eyebrow">03 / REFLEXOS E INSTINTO</span><h2>O pontinho <span class="muted-gradient">fujão.</span></h2></div><p>Você tem 15 segundos. Acerte o alvo verde sempre que ele aparecer em outro lugar.</p></div>
+      <div class="reaction-game reveal"><div class="game-info"><div><span class="eyebrow">DESAFIO DE REFLEXO</span><h3 id="gameTitle">Pronto quando você estiver.</h3><p id="gameDescription">Sem pressão. É só um pontinho.</p></div><div class="game-stats"><div><span>PONTOS</span><b id="gameScore">00</b></div><div><span>TEMPO</span><b id="gameTime">15s</b></div><div><span>RECORDE</span><b id="gameBest">00</b></div></div></div><div class="target-field" id="targetField"><div class="target-placeholder">O ALVO VAI APARECER AQUI</div><button id="targetButton" class="target-button" aria-label="Acertar alvo"></button></div><div class="game-bottom"><span id="gameStatus">Sistema em espera.</span><button class="button button-primary" id="startGame">Iniciar jogo <span>↗</span></button></div></div>
+    </section>
+
+
+    <section class="cosmos-section section-shell section-space" id="cosmos">
+      <div class="section-heading reveal"><div><span class="eyebrow">05 / CAMPO DE DISTORÇÃO</span><h2>Brinque com o <span class="muted-gradient">cosmos.</span></h2></div><p>Arraste o cursor, crie supernovas e altere as leis da física. Aqui, as partículas obedecem quase tudo.</p></div>
+      <div class="cosmos-window reveal" id="cosmosWindow">
+        <canvas id="cosmosCanvas" aria-label="Campo de partículas interativo"></canvas>
+        <div class="cosmos-hud"><span class="hud-pill"><i></i> SIMULAÇÃO ATIVA</span><span class="mono" id="particleReadout">PARTÍCULAS: 120</span></div>
+        <div class="cosmos-center" id="cosmosCenter"><span class="cosmos-kicker">VOCÊ É A ANOMALIA</span><strong>Faça<br><em>bagunça.</em></strong><button class="button button-primary" id="supernovaButton">Criar supernova ✦</button></div>
+        <div class="cosmos-controls"><label for="gravityRange">GRAVIDADE <b id="gravityValue">50%</b></label><input id="gravityRange" type="range" min="0" max="100" value="50"><button id="cosmosClear" class="reset-button">REINICIAR UNIVERSO ↺</button></div>
+      </div>
+    </section>
+
+    <section class="section-shell section-space" id="brinquedos">
+      <div class="section-heading reveal"><div><span class="eyebrow">06 / BRINQUEDOS DIGITAIS</span><h2>Toque em <span class="muted-gradient">tudo.</span></h2></div><p>Objetos que não têm utilidade nenhuma — exceto fazer você querer clicar neles.</p></div>
+      <div class="toy-grid">
+        <article class="toy-card toy-mix reveal"><span class="eyebrow">MÁQUINA DE HUMOR</span><h3>Qual é a vibe?</h3><div class="mood-face" id="moodFace">◕‿◕</div><p id="moodText">Tudo está estranhamente sob controle.</p><button class="button button-ghost" id="moodButton">Trocar de humor ↻</button></article>
+        <article class="toy-card toy-sound reveal"><span class="eyebrow">SINTETIZADOR DE BOLSO</span><h3>Faça barulho.</h3><p>Toque nas teclas para criar notas. Ligue o modo aleatório para uma mini jam cósmica.</p><div class="sound-keys" id="soundKeys"><button data-note="261.63">C</button><button data-note="293.66">D</button><button data-note="329.63">E</button><button data-note="349.23">F</button><button data-note="392">G</button><button data-note="440">A</button><button data-note="493.88">B</button><button data-note="523.25">C↑</button></div><div class="sound-footer"><span id="soundStatus">ÁUDIO PRONTO</span><button id="ambientButton" class="reset-button">♪ MODO ALEATÓRIO: OFF</button></div></article>
+        <article class="toy-card toy-drag reveal"><span class="eyebrow">FÍSICA DE MENTIRINHA</span><h3>Arraste os intrusos.</h3><p>Segure qualquer objeto e arraste pela área. No celular, toque e arraste também funciona.</p><div class="drag-zone" id="dragZone"><button class="drag-emoji" style="--x:15%;--y:22%">🪐</button><button class="drag-emoji" style="--x:54%;--y:18%">🛸</button><button class="drag-emoji" style="--x:72%;--y:58%">👾</button><button class="drag-emoji" style="--x:31%;--y:62%">🌙</button><button class="drag-emoji" style="--x:48%;--y:43%">💎</button></div></article>
+        <article class="toy-card toy-fortune reveal"><span class="eyebrow">ORÁCULO ABSURDO</span><h3>Uma previsão inútil.</h3><div class="fortune-symbol" id="fortuneSymbol">✧</div><p id="fortuneText">Em algum momento, você vai abrir outra aba e esquecer por quê.</p><button class="button button-ghost" id="fortuneButton">Consultar destino ✦</button></article>
+      </div>
+    </section>
+
+    <section class="portal-section section-shell section-space" id="portais">
+      <div class="section-heading reveal"><div><span class="eyebrow">07 / PORTAIS SECRETOS</span><h2>Escolha uma <span class="muted-gradient">realidade.</span></h2></div><p>Cada portal muda o clima por alguns instantes. Nenhuma escolha é permanente — a menos que você queira.</p></div>
+      <div class="portal-grid">
+        <button class="portal-card portal-aurora reveal" data-world="aurora"><span class="portal-art">✺</span><span class="portal-name">Aurora</span><span class="portal-desc">Céu elétrico e cores dançando</span><b>ENTRAR ↗</b></button>
+        <button class="portal-card portal-abyss reveal" data-world="abyss"><span class="portal-art">◉</span><span class="portal-name">Abismo</span><span class="portal-desc">Uma calma estranhamente profunda</span><b>ENTRAR ↗</b></button>
+        <button class="portal-card portal-sunset reveal" data-world="sunset"><span class="portal-art">☼</span><span class="portal-name">Pôr do sol</span><span class="portal-desc">Um fim de tarde que não acaba</span><b>ENTRAR ↗</b></button>
+      </div>
+      <div class="world-message" id="worldMessage" role="status">PORTAL EM ESPERA — ESCOLHA SUA REALIDADE</div>
+    </section>
+
+    <section class="final-section">
+      <div class="section-shell final-inner reveal"><div class="final-orb">✳</div><span class="eyebrow">04 / FIM? NEM PENSAR.</span><h2>Você chegou até aqui.<br><span class="gradient-text">Ou o site chegou até você?</span></h2><p>Há mais espaço para curiosidade do que parece. Volte ao início, troque as cores e faça tudo de novo.</p><a class="button button-primary" href="#inicio">Voltar ao começo <span>↑</span></a><span class="final-stamp">FIM DA PÁGINA<br>INÍCIO DA CURIOSIDADE</span></div>
+    </section>
+  </main>
+  <footer class="footer"><a class="brand" href="#inicio"><span class="brand-mark">◉</span> ÓRBITA<span class="brand-star">✳</span></a><p>Um universo pequeno para curiosidades enormes.</p><span class="mono">DESENVOLVIDO PARA NÃO TER UM OBJETIVO.</span><span class="footer-year" id="footerYear"></span></footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
